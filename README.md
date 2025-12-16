@@ -1,4 +1,4 @@
-# Nossomolabs Website
+# Nexovent Labs Website
 
 Professional IT company website built with Angular 21 and Node.js.
 
@@ -7,7 +7,7 @@ Professional IT company website built with Angular 21 and Node.js.
 ```
 ├── frontend/          # Angular 21 application
 │   └── src/app/
-│       ├── components/   # Navbar, Footer
+│       ├── components/   # Navbar, Footer, WhatsApp Button
 │       ├── pages/        # Home, About, Services, Contact
 │       └── services/     # Scroll animation service
 └── backend/           # Express.js API
@@ -16,11 +16,12 @@ Professional IT company website built with Angular 21 and Node.js.
 
 ## Features
 
-- Lenis smooth scrolling
-- Scroll-triggered animations
-- Responsive design
+- Modern, responsive design
+- Smooth scroll animations
+- Parallax background effects
 - Google Maps integration
 - Contact form
+- WhatsApp integration
 
 ## Getting Started
 
@@ -43,5 +44,16 @@ API runs on http://localhost:3000
 ## Services
 - Web Development
 - App Development
-- AI & ML Solutions
+- E-commerce Solutions
+- Local Business Software
+- AI Chatbots
 - Automation
+
+## Tech Stack
+- Angular 21
+- Node.js / Express
+- SCSS
+- TypeScript
+
+## License
+© 2025 Nexovent Labs. All rights reserved.
