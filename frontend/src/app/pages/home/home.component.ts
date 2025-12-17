@@ -307,7 +307,15 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
         background-size: cover;
       }
       .hero h1 { font-size: 2.5rem; }
-      .hero-buttons { flex-direction: column; }
+      .hero-buttons { 
+        flex-direction: row;
+        gap: 10px;
+      }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-secondary {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid {
         grid-template-columns: 1fr;
