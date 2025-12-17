@@ -30,11 +30,17 @@ import { RouterLink } from '@angular/router';
             <a routerLink="/services">AI & ML Solutions</a>
             <a routerLink="/services">Automation</a>
           </div>
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <a routerLink="/terms">Terms & Conditions</a>
+            <a routerLink="/privacy">Privacy Policy</a>
+            <a routerLink="/cookies">Cookies Policy</a>
+          </div>
           <div class="footer-links contact-links">
             <h4>Contact</h4>
             <a href="https://mail.google.com/mail/?view=cm&to=nexoventlabs@gmail.com" target="_blank"><span class="material-icons">email</span> nexoventlabs&#64;gmail.com</a>
             <a href="tel:+919440203095"><span class="material-icons">phone</span> +91 9440203095</a>
-            <p><span class="material-icons">location_on</span> OMR, Chennai, Tamil Nadu, India</p>
+            <p><span class="material-icons">location_on</span> Andhra Pradesh, India</p>
           </div>
         </div>
         <div class="footer-bottom">
@@ -70,7 +76,7 @@ import { RouterLink } from '@angular/router';
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 40px;
     }
@@ -114,6 +120,12 @@ import { RouterLink } from '@angular/router';
       padding-top: 30px;
       text-align: center;
       color: #6b7280;
+    }
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
     }
     @media (max-width: 768px) {
       .footer-grid {

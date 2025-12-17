@@ -43,7 +43,7 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
                 <span class="material-icons icon">location_on</span>
                 <div>
                   <h4>Address</h4>
-                  <p>OMR, Chennai, Tamil Nadu, India</p>
+                  <p>Andhra Pradesh, India</p>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
         <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Find Us</h2>
         <div class="map-container">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124406.90274619498!2d80.1502786!3d12.8767756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525b2e5e5a5a5b%3A0x5a5a5a5a5a5a5a5a!2sOMR%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916073.5772565887!2d75.4639033!3d15.8309873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3546f8ae93d47f%3A0x33d1bbbe95adcd83!2sAndhra%20Pradesh!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
             width="100%" 
             height="450" 
             style="border:0; border-radius: 16px;" 
