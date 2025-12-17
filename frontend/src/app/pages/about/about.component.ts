@@ -220,7 +220,23 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .why-choose {
       padding: 100px 0;
-      background: white;
+      background: url('/choose.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .why-choose::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .why-choose .container {
+      position: relative;
+      z-index: 1;
     }
     .why-grid {
       display: grid;
@@ -335,6 +351,9 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       .page-hero h1 { font-size: 2.5rem; }
       .intro-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
+      .why-choose {
+        background-attachment: scroll;
+      }
     }
   `]
 })

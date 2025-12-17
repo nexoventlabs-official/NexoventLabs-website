@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ScrollAnimationService } from '../../services/scroll-animation.service';
 
 @Component({
@@ -56,7 +56,7 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
           </div>
 
           <div class="contact-form" #animateEl>
-            <form (ngSubmit)="onSubmit()">
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
               <div class="form-row">
                 <div class="form-group">
                   <label for="firstName">First Name</label>
@@ -69,12 +69,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" [(ngModel)]="form.email" name="email" required>
+                <input type="email" id="email" [(ngModel)]="form.email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
               </div>
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <select id="subject" [(ngModel)]="form.subject" name="subject">
-                  <option value="">Select a subject</option>
+                <select id="subject" [(ngModel)]="form.subject" name="subject" required>
+                  <option value="" disabled>Select a subject</option>
                   <option value="web">Web Development</option>
                   <option value="app">App Development</option>
                   <option value="ai">AI & ML Solutions</option>
@@ -86,12 +86,26 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
                 <label for="message">Message</label>
                 <textarea id="message" [(ngModel)]="form.message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" class="btn-primary">Send Message</button>
+              <button type="submit" class="btn-primary" [disabled]="contactForm.invalid">Send Message</button>
             </form>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Custom Success Dialog -->
+    @if (showDialog) {
+      <div class="dialog-overlay" (click)="closeDialog()">
+        <div class="dialog-box" (click)="$event.stopPropagation()">
+          <div class="dialog-icon">
+            <span class="material-icons">check_circle</span>
+          </div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. We will get back to you within 24 hours.</p>
+          <button class="btn-primary" (click)="closeDialog()">Got it</button>
+        </div>
+      </div>
+    }
 
     <section class="map-section" #animateEl>
       <div class="container">
@@ -269,6 +283,11 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       padding: 16px;
       font-size: 1rem;
     }
+    form .btn-primary:disabled {
+      background: #a5a4fc;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
     .map-section {
       padding: 0 0 100px;
       opacity: 0;
@@ -283,6 +302,64 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    .dialog-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+    .dialog-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.3s ease;
+    }
+    .dialog-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1b18fe 0%, #1412c9 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .dialog-icon .material-icons {
+      font-size: 40px;
+      color: white;
+    }
+    .dialog-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #0a0a0a;
+    }
+    .dialog-box p {
+      color: #6c757d;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .dialog-box .btn-primary {
+      padding: 14px 40px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 768px) {
       .page-hero h1 { font-size: 2.5rem; }
@@ -303,15 +380,24 @@ export class ContactComponent implements AfterViewInit {
     message: ''
   };
 
+  showDialog = false;
+
   constructor(private scrollAnimation: ScrollAnimationService) {}
 
   ngAfterViewInit() {
     this.animateElements.forEach(el => this.scrollAnimation.observe(el.nativeElement));
   }
 
-  onSubmit() {
-    console.log('Form submitted:', this.form);
-    alert('Thank you for your message! We will get back to you soon.');
-    this.form = { firstName: '', lastName: '', email: '', subject: '', message: '' };
+  onSubmit(contactForm: NgForm) {
+    if (contactForm.valid) {
+      console.log('Form submitted:', this.form);
+      this.showDialog = true;
+      this.form = { firstName: '', lastName: '', email: '', subject: '', message: '' };
+      contactForm.resetForm();
+    }
+  }
+
+  closeDialog() {
+    this.showDialog = false;
   }
 }
