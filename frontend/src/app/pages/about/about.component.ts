@@ -102,7 +102,17 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       background: #1b18fe url('/bg-bottom.png') no-repeat bottom center;
       background-size: 100% auto;
-      margin-bottom: -5px;
+      margin-bottom: -1px;
+      position: relative;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: white;
     }
     .hero-content {
       opacity: 0;
