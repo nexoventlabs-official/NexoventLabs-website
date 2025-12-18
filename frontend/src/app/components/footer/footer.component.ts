@@ -60,7 +60,7 @@ import { RouterLink } from '@angular/router';
       top: -1px;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 0px;
       background: white;
       z-index: 10;
     }
