@@ -81,15 +81,14 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     .hero-content {
       max-width: 700px;
       opacity: 0;
-      transform: translate3d(0, 40px, 0);
-      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       z-index: 1;
-      backface-visibility: hidden;
     }
     .hero-content.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .hero h1 {
       font-size: 4rem;
@@ -138,13 +137,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       margin-bottom: 60px;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
     .section-header.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .services-grid {
       display: grid;
@@ -157,18 +155,16 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       padding: 40px 30px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
-      transform: translate3d(0, 40px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(40px);
     }
     .service-card.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: opacity 0.5s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      transform: translateY(0);
     }
     .service-card:hover {
-      transform: translate3d(0, -10px, 0);
+      transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(27, 24, 254, 0.15);
     }
     .service-card .icon {
@@ -203,13 +199,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     .cta-center {
       text-align: center;
       opacity: 0;
-      transform: translate3d(0, 20px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
     .cta-center.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .stats {
       padding: 80px 0;
@@ -223,13 +218,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .stat-item {
       opacity: 0;
-      transform: scale3d(0.9, 0.9, 1);
-      transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: scale(0.9);
+      transition: all 0.5s ease;
     }
     .stat-item.animate-in {
       opacity: 1;
-      transform: scale3d(1, 1, 1);
+      transform: scale(1);
     }
     .stat-number {
       display: block;
@@ -250,13 +244,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       color: #0a0a0a;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
     .cta-content.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .cta-content h2 {
       font-size: 2.5rem;
@@ -314,15 +307,7 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
         background-size: cover;
       }
       .hero h1 { font-size: 2.5rem; }
-      .hero-buttons { 
-        flex-direction: row;
-        gap: 10px;
-      }
-      .hero-buttons .btn-primary,
-      .hero-buttons .btn-secondary {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-      }
+      .hero-buttons { flex-direction: column; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid {
         grid-template-columns: 1fr;

@@ -102,27 +102,16 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       background: #1b18fe url('/bg-bottom.png') no-repeat bottom center;
       background-size: 100% auto;
-      margin-bottom: -1px;
-      position: relative;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: white;
+      margin-bottom: -5px;
     }
     .hero-content {
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
     .hero-content.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .page-hero h1 {
       font-size: 3.5rem;
@@ -147,13 +136,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .intro-content {
       opacity: 0;
-      transform: translate3d(-30px, 0, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
     }
     .intro-content.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateX(0);
     }
     .intro-content h2 {
       font-size: 2.2rem;
@@ -166,13 +154,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .intro-image {
       opacity: 0;
-      transform: translate3d(30px, 0, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateX(30px);
+      transition: all 0.6s ease;
     }
     .intro-image.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateX(0);
     }
     .about-img {
       width: 100%;
@@ -188,13 +175,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       margin-bottom: 60px;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
     .section-header.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .values-grid {
       display: grid;
@@ -208,17 +194,15 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
     }
     .value-card.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: opacity 0.4s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      transform: translateY(0);
     }
     .value-card:hover {
-      transform: translate3d(0, -5px, 0);
+      transform: translateY(-5px);
       box-shadow: 0 15px 40px rgba(27, 24, 254, 0.1);
     }
     .value-card .icon {
@@ -265,18 +249,16 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       border: 2px solid #e9ecef;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
     }
     .why-card.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: opacity 0.4s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+      transform: translateY(0);
     }
     .why-card:hover {
       border-color: #1b18fe;
-      transform: translate3d(0, -5px, 0);
+      transform: translateY(-5px);
     }
     .why-card .icon {
       font-size: 3rem;
@@ -305,13 +287,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       padding: 30px;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
     }
     .team-card.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .avatar {
       width: 100px;
@@ -342,13 +323,12 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       color: #0a0a0a;
       opacity: 0;
-      transform: translate3d(0, 30px, 0);
-      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      backface-visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
     .cta-content.animate-in {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     .cta-content h2 {
       font-size: 2.2rem;

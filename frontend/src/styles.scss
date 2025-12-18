@@ -34,9 +34,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-// Lenis smooth scroll styles
-html.lenis,
-html.lenis body {
+html.lenis, html.lenis body {
   height: auto;
 }
 
@@ -49,34 +47,11 @@ html.lenis body {
 }
 
 .lenis.lenis-stopped {
-  overflow: clip;
-  overflow: hidden; // Fallback for older browsers
+  overflow: hidden;
 }
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
-}
-
-// Improve scroll performance with GPU acceleration
-html.lenis body {
-  will-change: scroll-position;
-}
-
-// Optimized animation base styles for scroll-triggered elements
-[class*="animate-"] {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-// Force GPU layer for animated elements
-.animate-in {
-  transform: translateZ(0);
-}
-
-// Smooth anchor link scrolling
-[data-lenis-scroll-to] {
-  cursor: pointer;
 }
 
 a {
