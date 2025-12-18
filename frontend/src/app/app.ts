@@ -36,10 +36,14 @@ export class App implements OnInit, OnDestroy {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        duration: 1.8,
+        easing: (t: number) => 1 - Math.pow(1 - t, 4),
         orientation: 'vertical',
-        smoothWheel: true
+        smoothWheel: true,
+        wheelMultiplier: 0.8,
+        touchMultiplier: 1.5,
+        lerp: 0.075,
+        infinite: false
       });
 
       const raf = (time: number) => {
