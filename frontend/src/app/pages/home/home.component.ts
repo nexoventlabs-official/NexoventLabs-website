@@ -81,14 +81,15 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     .hero-content {
       max-width: 700px;
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translate3d(0, 40px, 0);
+      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       z-index: 1;
+      backface-visibility: hidden;
     }
     .hero-content.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .hero h1 {
       font-size: 4rem;
@@ -137,12 +138,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       margin-bottom: 60px;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .section-header.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .services-grid {
       display: grid;
@@ -155,16 +157,18 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       padding: 40px 30px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
-      transform: translateY(40px);
+      transform: translate3d(0, 40px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .service-card.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.5s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     }
     .service-card:hover {
-      transform: translateY(-10px);
+      transform: translate3d(0, -10px, 0);
       box-shadow: 0 20px 40px rgba(27, 24, 254, 0.15);
     }
     .service-card .icon {
@@ -199,12 +203,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     .cta-center {
       text-align: center;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
+      transform: translate3d(0, 20px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .cta-center.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .stats {
       padding: 80px 0;
@@ -218,12 +223,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .stat-item {
       opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.5s ease;
+      transform: scale3d(0.9, 0.9, 1);
+      transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .stat-item.animate-in {
       opacity: 1;
-      transform: scale(1);
+      transform: scale3d(1, 1, 1);
     }
     .stat-number {
       display: block;
@@ -244,12 +250,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       text-align: center;
       color: #0a0a0a;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .cta-content.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .cta-content h2 {
       font-size: 2.5rem;

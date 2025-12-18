@@ -144,12 +144,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .hero-content {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .hero-content.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .page-hero h1 {
       font-size: 3.5rem;
@@ -173,12 +174,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     }
     .contact-info {
       opacity: 0;
-      transform: translateX(-30px);
-      transition: all 0.6s ease;
+      transform: translate3d(-30px, 0, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .contact-info.animate-in {
       opacity: 1;
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     .contact-info h2 {
       font-size: 1.8rem;
@@ -245,12 +247,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       opacity: 0;
-      transform: translateX(30px);
-      transition: all 0.6s ease;
+      transform: translate3d(30px, 0, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .contact-form.animate-in {
       opacity: 1;
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     .form-row {
       display: grid;
@@ -301,12 +304,13 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
     .map-section {
       padding: 0 0 100px;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translate3d(0, 30px, 0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      backface-visibility: hidden;
     }
     .map-section.animate-in {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     .map-container {
       border-radius: 16px;
