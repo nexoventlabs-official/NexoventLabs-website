@@ -111,7 +111,7 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
       bottom: 0;
       left: 0;
       right: 0;
-      height: 0px;
+      height: 1px;
       background: white;
     }
     .hero-content {
