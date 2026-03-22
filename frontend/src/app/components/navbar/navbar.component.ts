@@ -1,13 +1,15 @@
-import { Component, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   template: `
-    <nav class="navbar" [class.scrolled]="isScrolled">
+    <nav class="navbar" [class.scrolled]="isScrolled" [class.dark-hero]="!isHomePage && !isScrolled">
       <div class="container nav-content">
         <a routerLink="/" class="logo">
           <img src="logo_text_nobg.png" alt="Nexovent Labs" class="logo-img" [class.white-logo]="!isScrolled"><span class="logo-text"></span>
@@ -56,6 +58,9 @@ import { CommonModule } from '@angular/common';
       transition: filter 0.3s ease;
     }
     .logo-img.white-logo {
+      filter: none;
+    }
+    .navbar.dark-hero .logo-img {
       filter: brightness(0) invert(1);
     }
     .logo-text {
@@ -70,10 +75,13 @@ import { CommonModule } from '@angular/common';
     }
     .nav-links a {
       font-weight: 500;
-      color: white;
+      color: #343a40;
       position: relative;
       padding: 5px 0;
       transition: color 0.3s ease;
+    }
+    .navbar.dark-hero .nav-links a {
+      color: #ffffff;
     }
     .navbar.scrolled .nav-links a {
       color: #343a40;
@@ -85,13 +93,19 @@ import { CommonModule } from '@angular/common';
       left: 0;
       width: 0;
       height: 2px;
-      background: white;
+      background: #1b18fe;
       transition: width 0.3s ease, background 0.3s ease;
+    }
+    .navbar.dark-hero .nav-links a::after {
+      background: #ffffff;
     }
     .navbar.scrolled .nav-links a::after {
       background: #1b18fe;
     }
     .nav-links a:hover, .nav-links a.active {
+      color: #1b18fe;
+    }
+    .navbar.dark-hero .nav-links a:hover, .navbar.dark-hero .nav-links a.active {
       color: rgba(255, 255, 255, 0.8);
     }
     .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active {
@@ -115,10 +129,13 @@ import { CommonModule } from '@angular/common';
       background: #343a40;
       transition: all 0.3s ease;
     }
+    .navbar.dark-hero .menu-toggle span {
+      background: #ffffff;
+    }
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
       .menu-toggle span {
-        background: white;
+        background: #343a40;
       }
       .navbar.scrolled .menu-toggle span {
         background: #343a40;
@@ -155,9 +172,28 @@ import { CommonModule } from '@angular/common';
     }
   `]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   isScrolled = false;
   menuOpen = false;
+  isHomePage = true;
+  private routeSub!: Subscription;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.checkRoute(this.router.url);
+    this.routeSub = this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe((e: any) => this.checkRoute(e.urlAfterRedirects || e.url));
+  }
+
+  ngOnDestroy() {
+    this.routeSub?.unsubscribe();
+  }
+
+  private checkRoute(url: string) {
+    this.isHomePage = url === '/' || url === '';
+  }
 
   @HostListener('window:scroll')
   onScroll() {
